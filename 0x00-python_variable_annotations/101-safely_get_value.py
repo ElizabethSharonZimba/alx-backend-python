@@ -1,25 +1,20 @@
 #!/usr/bin/env python3
 """
-Duck typing with TypeVar
+    Duck typing Typevar
 """
 from typing import Mapping, TypeVar, Any, Union
-
 T = TypeVar('T')
-
-def safely_get_value(dct: Mapping[Any, T], key: Any, default: Union[T, None] = None) -> Union[T, None]:
+def safely_get_value(dct: Mapping, key: Any, default: Union[T, None] = None)\
+        -> Union[Any, T]:
     """
-    Safely get value from a dictionary with a default.
-
-    Args:
-        dct: A dictionary-like mapping.
-        key: The key to lookup.
-        default: The default value to return if the key is not found.
-
-    Returns:
-        The value associated with the key if it exists, otherwise the default value.
+        Args:
+            dct: Mapping
+            key: Any data type
+            default: Default value
+        Return:
+            Any or T format
     """
     if key in dct:
         return dct[key]
     else:
         return default
-
